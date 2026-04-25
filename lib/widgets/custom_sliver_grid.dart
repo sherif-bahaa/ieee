@@ -5,26 +5,24 @@ class CustomSliverGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverGrid(
+    return SliverGrid.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),
-
-      delegate: SliverChildBuilderDelegate(childCount: 8, (context, index) {
-        return const  CustomContainer();
-      }),
+      itemCount: 4,
+      itemBuilder: (context, index) {
+        return const CustomContainer();
+      },
     );
   }
 }
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({
-    super.key,
-  });
+  const CustomContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       decoration: BoxDecoration(
         color: Colors.grey,
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
